@@ -15,51 +15,73 @@
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- 	<style>
+	.center_div{
+	margin: 0 auto;
+	width:40% /* value of your choice which suits your alignment */
+	}
+	</style> -->
   </head>
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+
+    <div class="container center_div">
+
+    	<div class="row">
+    		<div class="row">
+    			<div class="col-md-8 col-md-offset-4">
+    				<h2>Новое мероприятие</h2>
+    			</div>
+    		</div>
+    	<div class="col-md-4 col-md-offset-4">
+		<form method="POST" action="where" id="eventForm">
+		<div class="form-group">
+			<label for="companyName">Название компании:</label>
+			<input type="text" name="companyName" id="companyName" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="eventName">Название мероприятия:</label>
+			<input class="form-control"" name="eventName" id="eventName" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="eventDescription">Описание мероприятия:</label>
+			<textarea class="form-control" name="eventDescription" id="eventDescription" rows="3"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="inputAddress">Адрес</label>
+			<input type="text" class="form-control" id="inputAddress" placeholder="Новый Арбат, 6">
+		</div>
+		<div class="row">
+		<div class="form-group col-md-6">
+			<label for="inputCity">Город</label>
+			<input type="text" class="form-control" id="inputCity">
+		</div>
+		<div class="form-group col-md-6">
+			<label for="inputZip">Почтовый индекс</label>
+			<input type="text" class="form-control" id="inputZip">
+		</div>
+		</div>
+		<div class="row">
+		<div class="form-group col-md-6">
+			<label for="eventDate" class="col-2 col-form-label">Дата:</label>
+			<input class="form-control" type="date" value="2011-08-19" id="eventDate">
+		</div>
+		<div class="form-group col-md-6">
+			<label for="eventTime" class="col-2 col-form-label">Время:</label>
+			<input class="form-control" type="time" value="13:45:00" id="eventTime">
+		</div>
+		</div>
+		<div class="form-group">
+			<label for="eventImage">Выберите изображение (лучше прикрепить лого бренда, чем оставить поле пустым)</label>
+			<input type="file" name="eventImage">
+		</div>
+      	<button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+  </div>
+  </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
   </body>
 </html>
